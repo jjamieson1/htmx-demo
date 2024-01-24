@@ -110,6 +110,20 @@ func (_ tApp) Index(
 }
 
 
+type tContent struct {}
+var Content tContent
+
+
+func (_ tContent) GetContentByCategoryId(
+		pageName string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "pageName", pageName)
+	return revel.MainRouter.Reverse("Content.GetContentByCategoryId", args).URL
+}
+
+
 type tMenu struct {}
 var Menu tMenu
 

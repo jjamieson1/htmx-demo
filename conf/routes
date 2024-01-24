@@ -10,6 +10,7 @@ module:testrunner
 GET /                                       App.Index
 
 GET /components/navigation/menu/:pageName                      Menu.GetMenu
+GET /components/content Content.GetContentByCategoryId
 
 # Ignore favicon requests
 GET /favicon.ico                            404

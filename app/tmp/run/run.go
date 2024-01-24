@@ -14,7 +14,8 @@ import (
 	_ "github.com/revel/revel/cache"
 	_ "htmx-demo/app"
 	controllers1 "htmx-demo/app/controllers"
-	controllers2 "htmx-demo/app/controllers/menu"
+	controllers2 "htmx-demo/app/controllers/content"
+	controllers3 "htmx-demo/app/controllers/menu"
 	tests "htmx-demo/tests"
 	"github.com/revel/revel/testing"
 )
@@ -132,7 +133,20 @@ func Register() {
 			
 		})
 	
-	revel.RegisterController((*controllers2.Menu)(nil),
+	revel.RegisterController((*controllers2.Content)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "GetContentByCategoryId",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "pageName", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers3.Menu)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
 				Name: "GetMenu",
