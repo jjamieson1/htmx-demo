@@ -1,0 +1,19 @@
+<body class="d-flex flex-column min-vh-100">
+    <div class="container">
+        <div hx-get="/components/navigation/menu/{{ .pageName }}" hx-swap="outerHTML" hx-trigger="load"></div>
+    
+    </div>
+    <section>
+        <div>
+            <!-- Item -->
+            <div class="w-100 bg-cover" style="background-image: url(/public/img/brand/nebula.jpeg);">
+                <div class="container d-flex flex-column">
+                    <div class="row align-items-center justify-content-end py-12" style="max-height: 400px;">
+                        <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                            <h1 class="text-white">Ideation to Innovation</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
