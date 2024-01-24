@@ -20,7 +20,7 @@ func (c Menu) GetMenu(pageName string) revel.Result {
 	if err != nil {
 		revel.AppLog.Errorf("unable to get content with error: %s", err.Error())
 	}
-	ctg := `<select name="catId" hx-target="#main" hx-trigger="change" hx-get="/components/content" hx-indicator=".htmx-indicator" class="form-select"><option selected>Pages</option>`
+	ctg := `<select name="categoryId" hx-target="#main" hx-trigger="change" hx-post="/components/content" hx-indicator=".htmx-indicator" class="form-select"><option selected>Pages</option>`
 	for _, cat := range contents {
 		ctg = ctg + `<option value="`
 		ctg = ctg + cat.CmsCategoryId + `">` + cat.Name + `</option>`

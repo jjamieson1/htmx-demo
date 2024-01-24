@@ -42,8 +42,8 @@ github.com/inconshreveable/log15 v0.0.0-20201112154412-8562bdadbbac/go.mod h1:cO
 github.com/jinzhu/gorm v1.9.12/go.mod h1:vhTjlKSJUTWNtcbQtrMBFCxy7eXTzeCAzfL5fBZT/Qs=
 github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=
 github.com/jinzhu/now v1.0.1/go.mod h1:d3SSVoowX0Lcu0IBviAWJpolVfI5UJVZZ7cO71lE/z8=
-github.com/jjamieson1/eden-sdk v0.0.0-20240124184115-99a949d09b8b h1:1twifYwnagbp/fTOkKz08Y2pX5sSoBJwNcZyv//rrJk=
-github.com/jjamieson1/eden-sdk v0.0.0-20240124184115-99a949d09b8b/go.mod h1:08lHjIbJQO305umUVyld+q1zqgRFIt3EMhMmo1yjZkw=
+github.com/jjamieson1/eden-sdk v0.0.0-20240124231313-ab8b010aaa49 h1:bQ6FUWriUwZ3PeGS5rNSxVTD3/E/c4wa1bv2CiKRfcI=
+github.com/jjamieson1/eden-sdk v0.0.0-20240124231313-ab8b010aaa49/go.mod h1:08lHjIbJQO305umUVyld+q1zqgRFIt3EMhMmo1yjZkw=
 github.com/juju/errors v0.0.0-20181118221551-089d3ea4e4d5/go.mod h1:W54LbzXuIE0boCoNJfwqpmkKJ1O4TCTZMetAt6jGk7Q=
 github.com/juju/loggo v0.0.0-20180524022052-584905176618/go.mod h1:vgyd7OREkbtVEN/8IXZe5Ooef3LQePvuBm9UWj6ZL8U=
 github.com/juju/testing v0.0.0-20180920084828-472a3e8b2073/go.mod h1:63prj8cnj0tU0S9OHjGJn+b1h0ZghCndfnbQolrYTwA=

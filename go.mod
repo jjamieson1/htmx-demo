@@ -15,7 +15,7 @@ require (
 	github.com/gomodule/redigo v1.8.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/inconshreveable/log15 v0.0.0-20201112154412-8562bdadbbac // indirect
-	github.com/jjamieson1/eden-sdk v0.0.0-20240124184115-99a949d09b8b // indirect
+	github.com/jjamieson1/eden-sdk v0.0.0-20240124231313-ab8b010aaa49 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
