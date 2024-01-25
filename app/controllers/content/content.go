@@ -23,14 +23,20 @@ func (c Content) GetContentByCategoryId(pageName string) revel.Result {
 	if err != nil {
 		revel.AppLog.Errorf("unable to get content with error: %s", err.Error())
 	}
-	for _, a := range ctn {
-		if len(a.CmsContent.Images) > 0 {
-			for _, img := range a.CmsContent.Images {
-				image = img.Filename
+	if len(ctn) == 0 {
+		result = `
+			<div class="alert alert-danger mt-6" role="alert">
+				No content found in this category, please select another
+	  		</div>`
+	} else {
+		for _, a := range ctn {
+			if len(a.CmsContent.Images) > 0 {
+				for _, img := range a.CmsContent.Images {
+					image = img.Filename
+				}
 			}
-		}
-		result = fmt.Sprintf(`
-			<section class="py-12">
+			result = fmt.Sprintf(`
+			<section class="py-6">
 				<div class="container">
 					<div class="row align-items-center justify-content-between">
 						<div class="col-12 col-md-6 col-lg-5">
@@ -46,7 +52,7 @@ func (c Content) GetContentByCategoryId(pageName string) revel.Result {
 				</div>
 			</section>
 			`, a.CmsContent.Title, a.CmsContent.Body, image)
-
+		}
 	}
 
 	return c.RenderHTML(result)
