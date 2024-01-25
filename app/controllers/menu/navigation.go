@@ -22,7 +22,7 @@ func (c Menu) GetMenu(pageName string) revel.Result {
 	if err != nil {
 		revel.AppLog.Errorf("unable to get content with error: %s", err.Error())
 	}
-	ctg := `<select name="categoryId" hx-target="#main" hx-post="/components/content" hx-indicator=".htmx-indicator" class="form-select"><option>Select Page</option>`
+	ctg := `<select name="categoryId" hx-target="#main" hx-post="/components/content" class="form-select"><option>Select Page</option>`
 	for _, cat := range contents {
 		ctg = ctg + `<option value="`
 		ctg = ctg + cat.CmsCategoryId + `">` + cat.Name + `</option>`
@@ -37,7 +37,9 @@ func (c Menu) GetMenu(pageName string) revel.Result {
 				</button>
 				<div class="collapse navbar-collapse" id="navbarScroll">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						
+						<li class="nav-item">
+							<a class="nav-link" style="margin: 5px" href="/">Home</a>
+						</li>
 						<li class="nav-item">
 						%s
 						</li>
