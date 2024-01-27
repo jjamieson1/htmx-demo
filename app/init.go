@@ -1,9 +1,11 @@
 package app
 
 import (
-	"github.com/revel/revel"
-	_ "github.com/revel/modules"
+	"html/template"
+	"reflect"
 
+	_ "github.com/revel/modules"
+	"github.com/revel/revel"
 )
 
 var (
@@ -30,6 +32,15 @@ func init() {
 		revel.CompressFilter,          // Compress the result.
 		revel.BeforeAfterFilter,       // Call the before and after filter functions
 		revel.ActionInvoker,           // Invoke the action.
+	}
+
+	revel.TemplateFuncs["sizeOf"] = func(a interface{}) int {
+		vc := reflect.ValueOf(a)
+		return vc.Len()
+	}
+
+	revel.TemplateFuncs["html"] = func(t string) template.HTML {
+		return template.HTML(t)
 	}
 
 	// Register startup functions with OnAppStart

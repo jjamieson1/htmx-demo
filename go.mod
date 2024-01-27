@@ -2,6 +2,7 @@ module htmx-demo
 
 go 1.19
 
+replace github.com/jjamieson1/celestial-sdk  => /Users/jjamieso/go/src/github.com/jjamieson1/celestial-sdk
 require (
 	github.com/revel/modules v1.1.0
 	github.com/revel/revel v1.1.0
