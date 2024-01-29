@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"fmt"
+	"htmx-demo/app"
 
 	content "github.com/jjamieson1/eden-sdk/clients/cms"
 	"github.com/jjamieson1/eden-sdk/models"
@@ -16,35 +16,13 @@ func (c Menu) GetMenu(pageName string) revel.Result {
 
 	// Change this to use the Eden Tenant service to get configuration information
 	var provider models.TenantProvider
-	provider.EdenAdapter.AdapterUrl = "http://localhost:3001/api/v1/content"
+	provider.EdenAdapter.AdapterUrl = "http://localhost:3001/api/v1/cms"
 
-	contents, err := content.GetCategoryFromProvider("", "", provider)
+	categories, err := content.GetCategoryFromProvider(app.Tenant.TenantId, "", provider)
 	if err != nil {
 		revel.AppLog.Errorf("unable to get content with error: %s", err.Error())
 	}
-	ctg := `<select name="categoryId" hx-target="#main" hx-post="/components/content" class="form-select"><option>Select Page</option>`
-	for _, cat := range contents {
-		ctg = ctg + `<option value="`
-		ctg = ctg + cat.CmsCategoryId + `">` + cat.Name + `</option>`
-	}
-	ctg = ctg + `</select>`
-	result := fmt.Sprintf(`
-			<nav class="navbar navbar-expand-lg navbar-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="/">Celestial Technologies<span style="color:red">.</span></a>
-				
-				<div id="navbarScroll">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link" style="padding-top: 15px" href="/">Home</a>
-						</li>
-						<li class="nav-item">
-						%s
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		`, ctg)
-	return c.RenderHTML(result)
+
+	c.ViewArgs["categories"] = categories
+	return c.RenderTemplate("templates/navbar.html")
 }

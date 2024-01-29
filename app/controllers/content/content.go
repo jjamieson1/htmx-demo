@@ -1,8 +1,10 @@
 package controllers
 
 import (
-	content "github.com/jjamieson1/eden-sdk/clients/cms"
-	"github.com/jjamieson1/eden-sdk/models"
+	"htmx-demo/app"
+
+	contentClient "github.com/jjamieson1/celestial-sdk/clients/cms"
+	"github.com/jjamieson1/celestial-sdk/models"
 	"github.com/revel/revel"
 )
 
@@ -14,9 +16,9 @@ func (c Content) GetContentByCategoryId(pageName string) revel.Result {
 	categoryId := c.Params.Get("categoryId")
 	revel.AppLog.Debugf("requesting content from categoryId: %s", categoryId)
 	var provider models.TenantProvider
-	provider.EdenAdapter.AdapterUrl = "http://localhost:3001/api/v1/content"
+	provider.Adapter.AdapterUrl = "http://localhost:3001/api/v1/cms"
 
-	contentList, err := content.GetCmsFromProviderByCategoryId("", "", categoryId, provider)
+	contentList, err := contentClient.GetCmsByCategoryId(app.Tenant.TenantId, categoryId, provider)
 	if err != nil {
 		revel.AppLog.Errorf("unable to get content with error: %s", err.Error())
 	}

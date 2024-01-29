@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Celestial Technologies<span style="color:red">.</span></a>
+        <div id="navbarScroll">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" style="padding-top: 15px" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <select name="categoryId" hx-target="#main" hx-post="/components/content" class="form-select"><option>Select Page</option>
+                        {{ range $c := .categories }}
+                        <option value="{{ $c.CmsCategoryId }}">{{ $c.Name }}</option>
+                        {{ end }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

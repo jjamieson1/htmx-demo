@@ -2,7 +2,8 @@ module htmx-demo
 
 go 1.19
 
-replace github.com/jjamieson1/celestial-sdk  => /Users/jjamieso/go/src/github.com/jjamieson1/celestial-sdk
+replace github.com/jjamieson1/celestial-sdk => /Users/jjamieso/go/src/github.com/jjamieson1/celestial-sdk
+
 require (
 	github.com/revel/modules v1.1.0
 	github.com/revel/revel v1.1.0
@@ -16,6 +17,7 @@ require (
 	github.com/gomodule/redigo v1.8.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/inconshreveable/log15 v0.0.0-20201112154412-8562bdadbbac // indirect
+	github.com/jjamieson1/celestial-sdk v0.0.0-20240127172651-9c784c092d63
 	github.com/jjamieson1/eden-sdk v0.0.0-20240124231313-ab8b010aaa49 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect

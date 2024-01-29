@@ -2,8 +2,11 @@ package app
 
 import (
 	"html/template"
+	"log"
 	"reflect"
 
+	tenantClient "github.com/jjamieson1/celestial-sdk/clients/tenant"
+	"github.com/jjamieson1/celestial-sdk/models"
 	_ "github.com/revel/modules"
 	"github.com/revel/revel"
 )
@@ -11,7 +14,8 @@ import (
 var (
 	// AppVersion revel app version (ldflags)
 	AppVersion string
-
+	// Get the tenant information
+	Tenant *models.Tenant
 	// BuildTime revel app build-time (ldflags)
 	BuildTime string
 )
@@ -47,6 +51,7 @@ func init() {
 	// revel.DevMode and revel.RunMode only work inside of OnAppStart. See Example Startup Script
 	// ( order dependent )
 	// revel.OnAppStart(ExampleStartupScript)
+	revel.OnAppStart(GetTenant)
 	// revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
@@ -70,3 +75,13 @@ var HeaderFilter = func(c *revel.Controller, fc []revel.Filter) {
 //		// Dev mode
 //	}
 //}
+
+func GetTenant() {
+	var err error
+	appKey := revel.Config.StringDefault("appKey", "")
+	apiKey := revel.Config.StringDefault("apiKey", "")
+	Tenant, err = tenantClient.GetTenantDetails(appKey, apiKey)
+	if err != nil {
+		log.Fatalf("unable to start application with error: %s", err.Error())
+	}
+}
